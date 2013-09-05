@@ -6,7 +6,16 @@ describe "StaticPages" do
     it "should have references to correct location" do
     	visit '/static_pages/home'
     	expect(page).to have_content('Image Blog')
-    	expect(page).to have_title("Home")
+    end
+
+    it "should have a base title per ModuleHelper" do
+    	visit '/static_pages/home'
+    	expect(page).to have_title("Image Blog")
+    end
+
+    it "should not have a custom page title" do
+    	visit '/static_pages/home'
+    	expect(page).not_to have_title(' | Home')
     end
   end
 
