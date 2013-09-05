@@ -9,5 +9,4 @@ Image blog for personal use.
 * Can filter and sort images by associated tags
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Foundation and main guide: Ruby on Rails Tutorial by Michael Hartl
