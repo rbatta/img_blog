@@ -2,44 +2,30 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
+  subject { page }
+
   describe "Home page" do
-    it "should have references to correct location" do
-    	visit '/static_pages/home'
-    	expect(page).to have_content('Image Blog')
-    end
-
-    it "should have a base title per ModuleHelper" do
-    	visit '/static_pages/home'
-    	expect(page).to have_title("Image Blog")
-    end
-
-    it "should not have a custom page title" do
-    	visit '/static_pages/home'
-    	expect(page).not_to have_title(' | Home')
-    end
+    before { visit root_path }
+    it { should have_content('Image Blog') }
+    it { should have_title('Image Blog') }
+    it { should_not have_title('| Home') }
   end
 
   describe "Help page" do
-  	it "should have references to correct location" do
-  		visit '/static_pages/help'
-  		expect(page).to have_content('Help')
-  		expect(page).to have_title("Help")
-  	end
+    before { visit help_path }
+  	it { should have_content('Help') }
+    it { should have_title('Help') }
   end
 
   describe "About me" do
-  	it "should have references to correct location" do
-  		visit '/static_pages/about'
-  		expect(page).to have_content('About me')
-  		expect(page).to have_title("About me")
-  	end
+  	before { visit about_path }
+    it { should have_title('About me') }
+    it { should have_content('About me') }
   end
 
   describe "Contact me" do
-  	it "should have references to correct location" do
-  		visit '/static_pages/contact'
-  		expect(page).to have_content('Contact me')
-  		expect(page).to have_title('Contact me')
-  	end
+  	before { visit contact_path }
+    it { should have_content('Contact') }
+    it { should have_title('Contact') }
   end
 end
