@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'bcrypt-ruby'
 
 gem 'sass-rails', '4.0.0'
 gem 'uglifier', '2.1.1'
@@ -37,9 +38,6 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
