@@ -15,6 +15,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    ZenTest (4.9.3)
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
       mail (~> 2.5.3)
@@ -221,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ZenTest
   bcrypt-ruby
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)
