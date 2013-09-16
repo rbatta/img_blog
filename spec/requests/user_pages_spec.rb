@@ -41,11 +41,11 @@ describe "UserPages" do
     context "with valid info" do
       before do
         fill_in "Name",             with: "example"
-        fill_in "Email",            with: "test@test.com"
+        fill_in "Email",            with: "123@test.com"
         fill_in "Password",         with: "password"
         fill_in "Confirm Password", with: "password"
       end
-      let(:user) { User.find_by(email: "test@test.com") }
+      let(:user) { User.find_by(email: "123@test.com") }
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -55,8 +55,44 @@ describe "UserPages" do
         click_button submit
         expect(page).to have_title(user.name)
         expect(page).to have_selector('div.alert.alert-success', text: 'Welcome')
+        expect(page).to have_link('Sign out', href: signout_path)
       end
     end
   end
-  
+
+  context "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user }
+    before { visit edit_user_path(user) }
+
+    describe "page" do
+      it { should have_content("Update your profile") }
+      it { should have_title("Edit user") }
+      it { should have_content("Sign out") }
+      it { should have_link('change', href: 'http://gravatar.com/emails') }
+    end
+
+    it "should fail with invalid info" do
+      click_button "Save changes"
+      should have_content('error')
+    end
+
+    describe "with valid info" do
+      let(:new_name)  { "New person" }
+      let(:new_email) { "newb@test.com" }
+      before do
+        fill_in "Name",     with: new_name
+        fill_in "Email",    with: new_email
+        fill_in "Password", with: user.password
+        fill_in "Confirm Password", with: user.password
+        click_button "Save changes"
+      end
+
+      it { should have_title(new_name) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign out', href: signout_path) }
+      specify { expect(user.reload.name).to  eq new_name }
+      specify { expect(user.reload.email).to eq new_email }
+    end
+  end
 end
