@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Authentication" do
   subject { page }
 
-  describe "signin page" do
+  context "signin page" do
   	before { visit signin_path }
 
   	it { should have_content('Sign in') }
@@ -38,4 +38,41 @@ describe "Authentication" do
   		end
   	end
   end
+
+  context "authorization" do
+    context "for non-signed in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "in the User Controller" do
+        context "visiting the edit page" do
+          before { visit edit_user_path(user) }
+          it { should have_title('Sign in') }
+        end
+
+        context "submitting to update action" do
+          before { patch user_path(user) }
+          specify { expect(response).to redirect_to signin_path }
+        end
+      end
+    end
+
+    context "for the wrong user" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@test.com") }
+      before { sign_in user, no_capybara: true }
+
+      context "submitting a GET request to Users#edit action" do
+        before { get edit_user_path(wrong_user) }
+        specify { expect(response.body).not_to match(full_title('Edit user')) }
+        specify { expect(response).to redirect_to root_url }
+      end
+
+      context "submitting a PATCH to Users#update action" do
+        before { patch user_path(wrong_user) }
+        specify { expect(response).to redirect_to root_url }
+      end
+
+    end
+  end
+
 end
