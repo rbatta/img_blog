@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Authentication" do
   subject { page }
+  let(:user) { FactoryGirl.create(:user) }
 
   context "signin page" do
   	before { visit signin_path }
@@ -23,7 +24,6 @@ describe "Authentication" do
   	end
 
   	context "logging in with valid info" do
-  		let(:user) { FactoryGirl.create(:user) }
   		before { valid_signin(user) }
 
   		it { should have_title(user.name) }
@@ -42,12 +42,13 @@ describe "Authentication" do
 
   context "authorization" do
     context "for non-signed in users" do
-      let(:user) { FactoryGirl.create(:user) }
 
       context "in the User Controller" do
         context "visiting the edit page" do
           before { visit edit_user_path(user) }
           it { should have_title('Sign in') }
+          it { should_not have_link('Profile', href: user_path(user)) }
+          it { should_not have_link('Settings', href: edit_user_path(user)) }
         end
 
         context "submitting to update action" do
@@ -78,7 +79,6 @@ describe "Authentication" do
     end
 
     context "for the wrong user" do
-      let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@test.com") }
       before { sign_in user, no_capybara: true }
 
@@ -95,13 +95,33 @@ describe "Authentication" do
     end
 
     context "as non-admin users" do
-      let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }
 
       before { sign_in non_admin, no_capybara: true }
 
       describe "submitted DELETE request to Users#destroy action" do
         before { delete user_path(user) }
+        specify { expect(response).to redirect_to root_url }
+      end
+    end
+
+    context "for signed in users" do
+      before { sign_in user, no_capybara: true }
+
+      describe "attempting GET request to Users#new action" do
+        before { get new_user_path }
+        specify { expect(response).to redirect_to root_url }
+      end
+
+      describe "attempting POST request to Users#create" do
+        let(:params) do
+        { user: { admin: true, password: user.password,
+                  password_confirmation: user.password } }
+        end
+        before do
+          sign_in user, no_capybara: true
+          post users_path, params
+        end
         specify { expect(response).to redirect_to root_url }
       end
     end
