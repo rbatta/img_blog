@@ -74,6 +74,20 @@ describe "Authentication" do
           it "should redirect to page they wanted" do 
             expect(page).to have_title("Edit user")
           end
+
+          describe "when signing in again" do
+            before do
+              delete signout_path
+              visit signin_path
+              fill_in "Email",     with: user.email
+              fill_in "Password",  with: user.password
+              click_button "Sign in"
+            end
+
+            it "should render default profile page" do
+              expect(page).to have_title(user.name)
+            end
+          end
         end
       end
     end
