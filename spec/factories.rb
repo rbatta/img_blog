@@ -9,4 +9,10 @@ FactoryGirl.define do
     	admin true
     end
   end
+
+  factory :image do
+  	img_name 		"picture"
+  	description "picture description"
+  	user
+  end
 end

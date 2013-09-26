@@ -14,6 +14,7 @@ describe User do
 	  it { should respond_to(:authenticate) }
 	  it { should respond_to(:remember_token) }
 	  it { should respond_to(:admin) }
+	  it { should respond_to(:images) }
 
 	  it { should be_valid }
 	  it { should_not be_admin }
@@ -105,5 +106,24 @@ describe User do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
 		# equivalent to it { expect(@user.remember_token).not_to be_blank }
+	end
+
+	context "image associations" do
+		before { @user.save }
+		let!(:older_img) { FactoryGirl.create(:image, user: @user, created_at: 1.day.ago) }
+		let!(:newer_img) { FactoryGirl.create(:image, user: @user, created_at: 1.hour.ago) }
+
+		it "should have the images in chronological order (new first)" do
+			expect(@user.images.to_a).to eq [newer_img, older_img]
+		end
+
+		it "should destroy image associations" do
+			images = @user.images.to_a
+			@user.destroy
+			expect(images).not_to be_empty
+			images.each do |image|
+				expect(Image.where(id: image.id)).to be_empty
+			end
+		end
 	end
 end
