@@ -18,4 +18,24 @@ describe Image do
   	before { @img.user_id = nil }
   	it { should_not be_valid }
   end
+
+  context "with blank description" do
+    before { @img.description = "" }
+    it { should_not be_valid }
+  end
+
+  context "with description that is too long" do
+    before { @img.description = "a" * 251 }
+    it { should_not be_valid }
+  end
+
+  context "with blank image name" do
+    before { @img.img_name = "" }
+    it { should_not be_valid }
+  end
+
+  context "with image name that is too long" do
+    before { @img.img_name = "a" * 81 }
+    it { should_not be_valid }
+  end
 end
