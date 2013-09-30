@@ -32,9 +32,8 @@ Then(/^she should see descriptions of her images$/) do
   expect(page).to have_content('Cute kitty')
 end
 
-Then(/^she can click to view the image$/) do
+Then(/^she should see a link to view the image$/) do
   expect(page).to have_link('Kitty')
-  pending
 end
 
 When(/^show me the page$/) do

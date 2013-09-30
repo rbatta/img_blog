@@ -19,8 +19,9 @@ Background: images have been added to database
 Scenario: Displaying descriptions of images on user page
   Given Test is signed in
   When Test visits her profile
-  And show me the page
   Then she should see the title 'Images'
   And she should see descriptions of her images
-  And she can click to view the image
+  And she should see a link to view the image
+
+Scenario: Follow an image to its own page
 #TODO: set this up
