@@ -33,6 +33,7 @@ group :development, :test do
 	gem 'guard-spork', '1.5.0'
 	gem 'childprocess'
 	gem 'ZenTest'
+	gem 'launchy'
 end
 
 group :test do

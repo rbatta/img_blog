@@ -7,17 +7,23 @@ namespace :db do
                          password_confirmation: "password",
                          admin: true)
     User.create!(name: "Example User",
-                 email: "example@railstutorial.org",
+                 email: "test@test.com",
                  password: "password",
                  password_confirmation: "password")
-    99.times do |n|
+    33.times do |n|
       name  = Faker::Name.name
-      email = "example-#{n+1}@railstutorial.org"
+      email = "example-#{n+1}@test.com"
       password  = "password"
       User.create!(name: name,
                    email: email,
                    password: password,
                    password_confirmation: password)
+    end
+    users = User.all(limit: 2)
+    33.times do |n|
+      img_name = "Animal #{n+1}"
+      description = Faker::Lorem.sentence(5)
+      users.each { |user| user.images.create!(img_name: img_name, description: description) }
     end
   end
 end

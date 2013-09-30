@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+  	<h3>Images</h3>
+    <% if @user.images.any? %>
+      <ul class="images">
+        <%= render @images %>
+      </ul>
+      <%= will_paginate @images %>
+    <% end %>
+  </div>
 </div>

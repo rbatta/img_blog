@@ -13,10 +13,18 @@ describe "UserPages" do
 
     describe "profile page" do
     	let(:user) { FactoryGirl.create(:user) }
-    	before { visit user_path(user) }
+      let!(:img1) { FactoryGirl.create(:image, user: user, img_name: "Dog", description: "Dog description.") }
+      let!(:img2) { FactoryGirl.create(:image, user: user, img_name: "Cat", description: "Cat description!!") }
+    	
+      before { visit user_path(user) }
 
     	it { should have_content(user.name) }
     	it { should have_title(user.name) }
+
+      describe "image listings" do
+        it { should have_content(img1.img_name) }
+        it { should have_content(img1.description) }
+      end
     end
   end
 
