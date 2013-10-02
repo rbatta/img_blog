@@ -13,6 +13,8 @@ FactoryGirl.define do
   factory :image do
   	img_name 		"picture"
   	description "picture description"
+    tags        "funny, cute, gif"
   	user
   end
+
 end

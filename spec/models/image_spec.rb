@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Image do
   let(:user) { FactoryGirl.create(:user) }
-  before { @img = user.images.build(img_name: "picture", description: "pic desc") }
+  before { @img = user.images.build(img_name: "picture", description: "pic desc", tags: "funny, cute, gif") } 
 
   subject { @img }
 
@@ -10,6 +10,7 @@ describe Image do
   it { should respond_to(:description) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
+  it { should respond_to(:tags) }
   its(:user) { should eq user }
 
   it { should be_valid }
@@ -36,6 +37,11 @@ describe Image do
 
   context "with image name that is too long" do
     before { @img.img_name = "a" * 81 }
+    it { should_not be_valid }
+  end
+
+  context "with blank tags" do
+    before { @img.tags = "" }
     it { should_not be_valid }
   end
 end

@@ -4,6 +4,5 @@ class Image < ActiveRecord::Base
 	validates :user_id, presence: true
 	validates :description, presence: true, length: { maximum: 250 }
 	validates :img_name, presence: true, length: { maximum: 80 }
-	attr_protected :user_id
-
+	validates :tags, presence: true
 end
