@@ -28,6 +28,10 @@ Then /^she should see the title '(.*)'$/ do |word|
   expect(page).to have_content(word)
 end
 
+Then /^she should see an image$/ do 
+  expect(page).to have_css('.images img')
+end
+
 Then(/^she should see the (.*): "(.*)"$/) do |type, phrase|
   case type
   when "description" 

@@ -1,16 +1,5 @@
-<!--
-<li>
-  <span class="img_name"><%= link_to image.img_name, '#' %></span>
-  <span class="description">
-    <%= image.description %>
-  </span>
-  <span class="tags">
-  	<%= image.tags %>
-  </span>
-</li>
--->
 <tr>
-	<td rowspan="3" width=100>PICTURE</td>
+	<td rowspan="3" width=100><%= link_to image_tag("funny-gif-beach-ball.gif", alt: "funny gif beach ball", size: "75x75"), '#' %></td>
   <td class="img_name"><%= link_to image.img_name, '#' %></td>
 </tr>
 <tr>

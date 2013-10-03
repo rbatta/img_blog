@@ -20,6 +20,7 @@ Scenario: Displaying descriptions of images on user page
   Given Test is signed in
   When Test visits her profile
   Then she should see the title 'Images'
+  And she should see an image
   And she should see the description: "Cute kitty playing"
   And she should see the tags: "funny, cute, gif"
   And she should see a link to view the image
