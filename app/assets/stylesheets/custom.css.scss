@@ -190,21 +190,20 @@ input {
 }
 
 /* images */
-
 .images {
-  list-style: none;
   margin: 10px 0 0 0;
-
-  li {
+  tr {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid $grayLighter;
   }
 }
 .img_name {
-  display: block;
 }
 .description {
   color: $grayDarker;
+}
+.tags {
+  color: gray;
 }
 .gravatar {
   float: left;

@@ -1,6 +1,21 @@
+<!--
 <li>
   <span class="img_name"><%= link_to image.img_name, '#' %></span>
   <span class="description">
     <%= image.description %>
   </span>
+  <span class="tags">
+  	<%= image.tags %>
+  </span>
 </li>
+-->
+<tr>
+	<td rowspan="3" width=100>PICTURE</td>
+  <td class="img_name"><%= link_to image.img_name, '#' %></td>
+</tr>
+<tr>
+  <td class="description"><%= image.description %></td>
+</tr>
+<tr>
+  <td class="tags"><%= image.tags %></td>
+</tr>

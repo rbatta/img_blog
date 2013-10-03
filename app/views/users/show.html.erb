@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
       <h1>
         <%= gravatar_for @user %>
@@ -11,9 +11,9 @@
   <div class="span8">
   	<h3>Images</h3>
     <% if @user.images.any? %>
-      <ul class="images">
+      <table class="images">
         <%= render @images %>
-      </ul>
+      </table> 
       <%= will_paginate @images %>
     <% end %>
   </div>

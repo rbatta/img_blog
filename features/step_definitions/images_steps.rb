@@ -28,8 +28,13 @@ Then /^she should see the title '(.*)'$/ do |word|
   expect(page).to have_content(word)
 end
 
-Then(/^she should see descriptions of her images$/) do
-  expect(page).to have_content('Cute kitty')
+Then(/^she should see the (.*): "(.*)"$/) do |type, phrase|
+  case type
+  when "description" 
+    expect(page).to have_content(phrase)
+  when "tags"
+    expect(page).to have_content(phrase)
+  end
 end
 
 Then(/^she should see a link to view the image$/) do
