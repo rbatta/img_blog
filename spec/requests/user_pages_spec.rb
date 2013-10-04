@@ -24,6 +24,8 @@ describe "UserPages" do
       describe "image listings" do
         it { should have_content(img1.img_name) }
         it { should have_content(img1.description) }
+        it { should have_content(img1.tags) }
+        it { should have_css('.images img') }
       end
     end
   end
