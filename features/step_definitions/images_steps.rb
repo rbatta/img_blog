@@ -48,3 +48,25 @@ end
 When(/^show me the page$/) do
   save_and_open_page
 end
+
+Given /^(.*) goes to her profile page$/ do |name|
+  steps %Q{
+    Given #{name} is signed in
+    When #{name} visits her profile
+  }
+end
+
+When /^she clicks on the name "(.*?)"$/ do |title|
+  click_link(title)
+end
+
+Then /^she should be on the image page for "(.*?)"$/ do |title|
+  @img = Image.find_by_img_name(title)
+  current_path.should == image_path(@img)
+end
+
+Then(/^she should see the image for "(.*?)"$/) do |title|
+  @img = Image.find_by_img_name(title)
+  expect(page).to have_css('img')
+end
+

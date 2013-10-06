@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ImagesController do
 	before do 
-		@user = FactoryGirl.create(:user)
+		#@user = FactoryGirl.create(:user)
 		@img = FactoryGirl.create(:image) 
 	end
 
@@ -11,4 +11,6 @@ describe ImagesController do
 			get :show, {id: 1}
 		end
 	end
+
+	
 end
