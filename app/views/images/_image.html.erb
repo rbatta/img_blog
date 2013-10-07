@@ -1,10 +1,8 @@
-<tr>
-	<td rowspan="3" width=100><%= link_to image_tag("funny-gif-beach-ball.gif", alt: "funny gif beach ball", size: "75x75"), image_path(image.id) %></td>
-  <td class="img_name"><%= link_to image.img_name, image_path(image.id) %></td>
-</tr>
-<tr>
-  <td class="description"><%= image.description %></td>
-</tr>
-<tr>
-  <td class="tags"><%= image.tags %></td>
-</tr>
+<div class="left-column">
+	<div class="image"><%= link_to image_tag("funny-gif-beach-ball.gif", alt: "funny gif beach ball", size: "70x70"), image_path(image.id) %></div>
+</div>
+<div class="right-column">
+	<div class="img_name"><%= link_to image.img_name, image_path(image.id) %></div>
+	<div class="description"><%= image.description %></div>
+	<div class="tags"><%= image.tags %></div>
+</div>

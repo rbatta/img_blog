@@ -82,6 +82,7 @@ p {
 /* footer */
 
 footer {
+  clear: both;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
@@ -188,15 +189,7 @@ input {
 }
 
 /* images */
-.images {
-  margin: 10px 0 0 0;
-  tr {
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-  }
-}
-.img_name {
-}
+
 .description {
   color: $grayDarker;
 }
@@ -213,12 +206,25 @@ aside {
     margin-bottom: 5px;
   }
 }
-
 .content {
-  text-align: center;
-  float: center;
+  padding: 20px 20px;
+  margin: auto;
+  float:center;
+  text-align: center
 }
-
+.left-column, .right-column {
+  float: left;
+}
+.left-column {
+  width: 75px;
+  border-bottom:solid 1px;
+  height: 75px;
+}
+.right-column {
+  width: 80%;
+  border-bottom:solid 1px;
+  height: 75px;
+}
 .image {
-  margin: 20px 20px 20px 20px;
+  margin: 5px;
 }

@@ -1,8 +1,7 @@
 <% provide(:title, @image.img_name) %>
+<h1><%= @image.img_name %></h1>
 <div class="content">
-	<h1><%= @image.img_name %>
-	</h1>
-	<div class="image"><%= image_tag("funny-gif-beach-ball.gif", alt: "funny gif beach ball") %></div>
+	<div><%= image_tag("funny-gif-beach-ball.gif", alt: "funny gif beach ball") %></div>
 	<div class="description"><%= @image.description %></div>
 	<div class="tags"><%= @image.tags %></div>
 </div>
