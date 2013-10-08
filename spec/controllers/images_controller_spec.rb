@@ -12,5 +12,17 @@ describe ImagesController do
 		end
 	end
 
-	
+	context "images#create" do
+		pending
+	end
+
+	context "images#destroy" do
+		pending
+	end
+
+	context "images#index" do
+		it "could get index page?" do
+			get :index
+		end
+	end
 end

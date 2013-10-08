@@ -90,6 +90,11 @@ describe "Authentication" do
           end
         end
       end
+
+      context "in the Images controller" do
+        before { post images_path }
+        specify { expect(response).to redirect_to signin_path }
+      end
     end
 
     context "for the wrong user" do
