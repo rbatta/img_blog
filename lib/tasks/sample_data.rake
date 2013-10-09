@@ -24,7 +24,9 @@ namespace :db do
       img_name = "Animal #{n+1}"
       description = Faker::Lorem.sentence(5)
       tags = Faker::Lorem.words(3)
-      users.each { |user| user.images.create!(img_name: img_name, description: description, tags: tags.to_s) }
+      users.each { |user| user.images.create!(img_name: img_name, 
+                                              description: description, 
+                                              tags: tags) }
     end
   end
 end

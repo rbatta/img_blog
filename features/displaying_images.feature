@@ -30,4 +30,3 @@ Scenario: Follow an image to its own page
   And she clicks on the name "Dog"
   Then she should be on the image page for "Dog"
   And she should see the image for "Dog"
-#TODO: set this up
