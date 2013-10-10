@@ -25,9 +25,9 @@ Scenario: Displaying descriptions of images on user page
   And she should see the tags: "funny, cute, gif"
   And she should see a link to view the image
 
-Scenario: Follow an image to its own page
-  Given Test goes to her profile page
+Scenario: Only users can see individual images
+  Given Test is not signed in
+  When Test visits her profile
   And she clicks on the name "Dog"
-  Then she should be on the image page for "Dog"
-  And she should see the image for "Dog"
-#TODO: set this up
+  Then she should see a notice message
+  And she should be redirected to the sign in page

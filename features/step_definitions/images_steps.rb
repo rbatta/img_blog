@@ -11,12 +11,11 @@ Given /the following images exist for Test/ do |images_table|
   end
 end
 
-Given /^(.*) is signed in$/ do |name|
-  @user = User.find_by_name(name)
-  visit signin_path
-  fill_in "Email", 	with: @user.email
-  fill_in "Password", with: @user.password 
-  click_button "Sign in"
+Given /^Test is( not)? signed in$/ do |negate|
+  unless negate
+    user = User.find_by_name('Test')
+    logon_for_user user
+  end  
 end
 
 When /^(.*) visits her profile$/ do |name|
@@ -50,8 +49,9 @@ When(/^show me the page$/) do
 end
 
 Given /^(.*) goes to her profile page$/ do |name|
+  @user = User.find_by_name(name)
+  logon_for_user(@user)
   steps %Q{
-    Given #{name} is signed in
     When #{name} visits her profile
   }
 end
@@ -70,3 +70,19 @@ Then(/^she should see the image for "(.*?)"$/) do |title|
   expect(page).to have_css('img')
 end
 
+Given /^a (non-)user visits (.*)'s profile page$/ do |negate, name|
+  @user = User.find_by_name(name)
+  visit user_path(@user)
+end
+
+Then /^she should be redirected to the sign in page$/ do
+  current_path.should == signin_path
+end
+
+
+def logon_for_user(user)
+  visit signin_path
+  fill_in "Email",    with: user.email
+  fill_in "Password", with: user.password
+  click_button "Sign in"
+end
