@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-	before_action :signed_in_user, only: [:create, :destroy]
+	before_action :signed_in_user
 
 	def index
 	end
@@ -11,5 +11,8 @@ class ImagesController < ApplicationController
 	end
 
 	def create
+	end
+
+	def destroy
 	end
 end

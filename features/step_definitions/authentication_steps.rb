@@ -12,8 +12,8 @@ When(/^she submits invalid signin info$/) do
   click_button "Sign in"
 end
 
-Then /^she should see an error message$/ do
-  expect(page).to have_selector('div.alert.alert-error')
+Then /^she should see an? (.*) message$/ do |message|
+  expect(page).to have_selector("div.alert.alert-#{message}")
 end
 
 When(/^she submits valid signin info$/) do

@@ -92,8 +92,16 @@ describe "Authentication" do
       end
 
       context "in the Images controller" do
-        before { post images_path }
-        specify { expect(response).to redirect_to signin_path }
+        describe "submitting to the create action" do
+          before { post images_path }
+          specify { expect(response).to redirect_to signin_path }
+        end
+
+        describe "viewing individual images" do
+          let(:img) { FactoryGirl.create(:image) }
+          before { get image_path(img) }
+          specify { expect(response).to redirect_to signin_path }
+        end
       end
     end
 
