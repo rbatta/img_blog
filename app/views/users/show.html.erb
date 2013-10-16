@@ -11,9 +11,9 @@
   <div class="span8">
   	<h3>Images</h3>
     <% if @user.images.any? %>
-      <table class="images">
-        <%= render @images %>
-      </table> 
+      <p>Search:</p>
+      <p>Sort by:</p>  
+      <%= render @images %>
       <%= will_paginate @images %>
     <% end %>
   </div>
