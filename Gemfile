@@ -32,7 +32,7 @@ group :development, :test do
 	gem 'spork-rails', github: 'sporkrb/spork-rails'
 	gem 'guard-spork', '1.5.0'
 	gem 'childprocess'
-	gem 'ZenTest'
+	gem 'ZenTest', '4.9.4'
 	gem 'launchy'
 end
 
