@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby'
 gem 'faker', '1.1.2'
@@ -10,14 +10,14 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'sass-rails', '4.0.0'
 gem 'uglifier', '2.1.1'
-gem 'coffee-rails', '4.0.0'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :production do
 	gem 'pg'
-#	gem 'rails_12factor'
+#	gem 'rails_12factor' specifically for heroku
 end
 
 group :doc do
