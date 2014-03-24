@@ -1,4 +1,9 @@
 language: ruby
 rvm:
   - "2.0.0"
-script: bundle exec rspec spec --drb
+script: bundle exec rspec spec 
+
+# whitelist
+branches:
+  only:
+    - localtest_branch
