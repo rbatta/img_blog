@@ -26,6 +26,7 @@ group :doc do
 end
 
 group :development, :test do 
+	gem 'rake'
 	gem 'debugger'
 	gem 'sqlite3'
 	gem 'rspec-rails', '2.13.1'

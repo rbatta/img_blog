@@ -256,6 +256,7 @@ DEPENDENCIES
   launchy
   pg
   rails (= 4.0.3)
+  rake
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0)
   sdoc (= 0.3.20)
