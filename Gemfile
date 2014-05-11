@@ -15,7 +15,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'sprockets', '2.11.0'
-gem 'ninefold'
 
 group :production do
 	gem 'pg'
