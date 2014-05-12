@@ -1,6 +1,9 @@
+
 language: ruby
 rvm:
   - "2.0.0"
 script: 
   - bundle exec rake db:migrate test:prepare
   - bundle exec rspec spec
+  - bash
+  - secure: "T3RpyFfDHiglZIq4PZG2ZMHPQw99m0yrss50Q0m8HYVUsWOeJD9G2qzUo89tw9u6qHp/dsWpyReaCv2uts1TkIynJ35N40TUfnnk7oeJvC0O+5OMoa+7eOeMOb8LWQ7aKdHEA5Iu1TsfXT+7qL24IPrT/7m+V1Ihfxw2nChzRp4=" APP_ID=4102 ninefold app redeploy --robot -s
