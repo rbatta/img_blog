@@ -4,6 +4,5 @@ rvm:
 script: 
   - bundle exec rake db:migrate test:prepare
   - bundle exec rspec spec
-  - gem install ninefold
 after_success:
   - AUTH_TOKEN=FD99E1F0719CC353704E9ACCAB4379A5D8191FC0CD220588F8345DA15583C56B APP_ID=4102 bundle exec ninefold app redeploy --robot -s
