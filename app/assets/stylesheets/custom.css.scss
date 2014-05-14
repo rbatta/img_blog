@@ -16,6 +16,10 @@ html {
 
 body {
   padding-top: 60px;
+  background: url('ryuomaru.jpg');
+  background-repeat:no-repeat;
+  background-position:right bottom;
+  height: 800px;
 }
 
 section {
@@ -24,6 +28,10 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+.hero-unit {
+  background-color: rgba(20,20,20,0.1);
 }
 
 .center {
