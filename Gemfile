@@ -16,6 +16,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'sprockets', '2.11.0'
 gem 'ninefold'
+gem 'whenever'
 
 group :production do
 	gem 'pg'
