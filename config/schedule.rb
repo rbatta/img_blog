@@ -1,4 +1,4 @@
-set :output, '/var/www/apps/imageblog/current/log/crontask.log'
+set :output, '/var/www/apps/img_blog/current/log/crontask.log'
 
 every 15.minutes do
   command "echo \"I am running from cron!\""
