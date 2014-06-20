@@ -1,0 +1,37 @@
+ruby:
+  version:
+    2.0.0-p451
+
+## Customize dependencies
+dependencies:
+  pre:
+    - gem install bundler --pre
+
+  override:
+    - bundle install
+
+## Customize database setup
+database:
+  override:
+    - bundle exec rake db:setup
+
+## Customize test commands
+test:
+  override:
+    - bundle exec rake db:migrate test:prepare
+  post:
+    - bundle exec cucumber
+        environment:
+          RAILS_ENV: test
+          RACK_ENV: test
+  post:
+    - bundle exec rspec spec
+        environment:
+          RAILS_ENV: test
+          RACK_ENV: test
+
+deployment:
+  production:
+    branch: master
+    commands: 
+      - AUTH_TOKEN=FD99E1F0719CC353704E9ACCAB4379A5D8191FC0CD220588F8345DA15583C56B APP_ID=4102 bundle exec ninefold app redeploy --robot -s
