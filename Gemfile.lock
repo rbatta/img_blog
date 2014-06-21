@@ -147,6 +147,7 @@ GEM
     multi_test (0.1.1)
     multipart-post (2.0.0)
     netrc (0.7.7)
+    newrelic_rpm (3.8.1.221)
     ninefold (1.5.0)
       faraday (~> 0.8)
       json (~> 1.7)
@@ -267,6 +268,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy
+  newrelic_rpm
   ninefold
   pg
   rails (= 4.0.3)

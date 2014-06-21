@@ -28,4 +28,4 @@ deployment:
   production:
     branch: master
     commands: 
-      - bundle exec ninefold app redeploy --robot -s
+      - bundle exec ninefold app redeploy --robot --sure
