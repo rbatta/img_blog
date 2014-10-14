@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.0.10'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby'
 gem 'faker', '1.1.2'
