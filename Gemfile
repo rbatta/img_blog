@@ -18,6 +18,7 @@ gem 'sprockets', '2.11.0'
 gem 'ninefold'
 gem 'whenever'
 gem 'newrelic_rpm'
+gem 'carrierwave'
 
 group :production do
 	gem 'pg'
