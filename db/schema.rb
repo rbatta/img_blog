@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002014819) do
+ActiveRecord::Schema.define(version: 20141122220745) do
 
   create_table "images", force: true do |t|
     t.string   "img_url"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20131002014819) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "tags"
+    t.string   "gif"
+    t.string   "pictures"
   end
 
   add_index "images", ["tags"], name: "index_images_on_tags"

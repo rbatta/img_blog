@@ -15,4 +15,7 @@ class ImagesController < ApplicationController
 
 	def destroy
 	end
+
+	private
+
 end

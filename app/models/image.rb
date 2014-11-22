@@ -5,4 +5,7 @@ class Image < ActiveRecord::Base
 	validates :description, presence: true, length: { maximum: 250 }
 	validates :img_name, presence: true, length: { maximum: 80 }
 	validates :tags, presence: true
+  # attr_accessible deprecated in rails 4 -- need to change
+  # attr_accessible :pictures
+  mount_uploader :pictures, ImageUploader
 end
