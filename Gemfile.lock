@@ -259,7 +259,7 @@ DEPENDENCIES
   coffee-rails
   cucumber-rails (= 1.4.0)
   database_cleaner!
-  debugger
+  debugger (~> 1.6.6)
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
   guard-rspec (= 2.5.0)

@@ -31,7 +31,7 @@ end
 
 group :development, :test do 
 	gem 'rake'
-	gem 'debugger'
+	gem 'debugger', '~> 1.6.6'
 	gem 'sqlite3'
 	gem 'rspec-rails', '2.13.1'
 	gem 'guard-rspec', '2.5.0'
