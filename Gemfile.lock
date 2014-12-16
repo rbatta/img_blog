@@ -146,13 +146,13 @@ GEM
     multi_json (1.10.1)
     multi_test (0.1.1)
     multipart-post (2.0.0)
-    netrc (0.7.7)
+    netrc (0.8.0)
     newrelic_rpm (3.8.1.221)
-    ninefold (1.5.0)
-      faraday (~> 0.8)
-      json (~> 1.7)
-      netrc (~> 0.7)
-      thor (~> 0.19)
+    ninefold (1.7.5)
+      faraday (= 0.9.0)
+      json (= 1.8.1)
+      netrc (= 0.8.0)
+      thor (= 0.19.1)
     nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -268,7 +268,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   newrelic_rpm
-  ninefold
+  ninefold (= 1.7.5)
   pg
   rails (= 4.0.10)
   rake
