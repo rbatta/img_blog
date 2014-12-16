@@ -5,4 +5,4 @@ script:
   - bundle exec rake db:migrate test:prepare
   - bundle exec rspec spec
 after_success:
-  - AUTH_TOKEN APP_ID bundle exec ninefold app redeploy --robot -s
+  - bundle exec ninefold app redeploy --robot -s
