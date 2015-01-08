@@ -12,7 +12,7 @@ namespace :db do
     #              password_confirmation: "password")
     33.times do |n|
       name  = Faker::Name.name
-      email = "example-#{n+1}@test.com"
+      email = "example1-#{n+1}@test.com"
       password  = "password"
       User.create!(name: name,
                    email: email,
