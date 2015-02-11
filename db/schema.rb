@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141122220745) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "images", force: true do |t|
     t.string   "img_url"
     t.string   "img_name"
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 20141122220745) do
     t.string   "pictures"
   end
 
-  add_index "images", ["tags"], name: "index_images_on_tags"
-  add_index "images", ["user_id", "created_at"], name: "index_images_on_user_id_and_created_at"
+  add_index "images", ["tags"], name: "index_images_on_tags", using: :btree
+  add_index "images", ["user_id", "created_at"], name: "index_images_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141122220745) do
     t.boolean  "admin",           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

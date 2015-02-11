@@ -15,13 +15,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'sprockets', '2.11.0'
-gem 'ninefold', '1.7.5'
+gem 'ninefold'
 gem 'whenever'
 gem 'newrelic_rpm'
 gem 'thin'
+gem 'pg'
 
 group :production do
-	gem 'pg'
 #	gem 'rails_12factor' specifically for heroku
 end
 
@@ -32,7 +32,6 @@ end
 group :development, :test do 
 	gem 'rake'
 #	gem 'debugger', '~> 1.6.6'
-	gem 'sqlite3'
 	gem 'rspec-rails', '2.13.1'
 	gem 'guard-rspec', '2.5.0'
 	gem 'spork-rails', github: 'sporkrb/spork-rails'
